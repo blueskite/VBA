@@ -1,4 +1,4 @@
-[TOP](README)
+[TOP](.)
 
 # はじめに
 Excel VBA(Visual Basic for Application)は、
