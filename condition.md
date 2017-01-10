@@ -65,7 +65,7 @@ End If
 
 ## select case 文
 ある変数の値によって処理を変えるものが複数ある時select case の利用を検討ください。
-
+if、 then、 elseif がたくさん続くときに便利です。
 
 ### 例1) 変数valueが red, blue, green のときにその日本語の色名を文字列sに入力する
 
@@ -84,7 +84,7 @@ End Select
 If IsDate(value) Then  ' valueが日付形式だったら
   Select Case WeekDay(value)     '曜日を数字で取得(1=日曜 7=土曜)
     Case 1: Debug.Print "日曜日です"
-    Case 5,6: Debug.Print "週末に近い(木金)です"
+    Case 5,6: Debug.Print "週末に近い(木金)です"  
     Case 7: Debug.Print "土曜日です"
     Case Else: Debug.Print "他の平日です"
   End Select
@@ -94,7 +94,7 @@ End If
 ### Caseで指定する方法のその他の例
 
 ```
-値が 1～3 もしくは 10以上の場合:   Case 1 To 3, Is >= 10
-値が "A" か "B" の場合       ：   Case "A" Or "B"
+値が 1～3 の場合:   Case 1 To 3, Is >= 10
+値が10以上の場合:   Case Is >= 10
 ```
 

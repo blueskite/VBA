@@ -52,11 +52,3 @@ Next
 ```
 iに参照したい行番号を指定します。
 Cells(1,1) は Range("A1") と同じです。
-
-------------------
-
-### 今後の予定
-
-* select case
-* if then else end if 
-* 
