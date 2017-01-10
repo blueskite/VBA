@@ -13,10 +13,12 @@ If x = 10 Then
     Debug.Print "xは10です"
 End if 
 
-※ 値が同じであるかをチェックするときは他のプログラミング言語は == ですがVBAは= は1つです
+※ 値が同じであるかをチェックするときは
+   他のプログラミング言語は == ですがVBAは= は1つです
 
 
-例2) xが10もしくは 20のとき実行する。そうでないときは別の処理を実行する
+例2) xが10もしくは 20のとき実行する。
+     そうでないときは別の処理を実行する
 If x = 10 Or x = 20 then 
     Debug.Print "xは10火20です"
 Else
@@ -24,7 +26,8 @@ Else
 End If
 
 
-例3) 文字列s に x が10の時 "A"、 xが20以上の時 "B"、 それ以外のときは "other"を入力する
+例3) 文字列s に x が10の時 "A"、 xが20以上の時 "B"、 
+     それ以外のときは "other"を入力する
 Dim s As String
 If x = 10 Then
     s = "A"
@@ -35,7 +38,8 @@ Else
 End If
 
 
-例4) xが10以上20未満なら処理1を実行する。そうでないときxが0でなければ別の処理を実行する
+例4) xが10以上20未満なら処理1を実行する。
+     そうでないときxが0でなければ別の処理を実行する
 If x >= 10 And x < 20 Then
     Debug.Print "処理1"
 ElseIf x <> 0 Then
@@ -56,7 +60,8 @@ End If
 
 
 ```
-例1) 変数valueが red, blue, green のときにその日本語の色名を文字列sに入力する
+例1) 変数valueが red, blue, green のときに
+     その日本語の色名を文字列sに入力する
 Dim s As String
 Select Case value 
   Case "red": s = "赤"
@@ -67,17 +72,18 @@ End Select
 
 例2) 日付の値 value が 曜日によって処理を変える
 If IsDate(value) Then  ' valueが日付形式だったら
-  Select Case WeekDay(value)     'valueの曜日を数字で取得(1=日曜 7=土曜)
+  Select Case WeekDay(value)     '曜日を数字で取得(1=日曜 7=土曜)
     Case 1: Debug.Print "日曜日です"
     Case 5,6: Debug.Print "週末に近い(木金)です"
     Case 7: Debug.Print "土曜日です"
     Case Else: Debug.Print "他の平日です"
   End Select
 End If
+``` 
 
 ※ Caseで指定する方法のその他の例
+```
 値が 1～3 もしくは 10以上の場合:   Case 1 To 3, Is >= 10
 値が "A" か "B" の場合       ：   Case "A" Or "B"
-
 ```
 
