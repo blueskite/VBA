@@ -3,7 +3,8 @@
 Excel VBAを使って集計やデータ分析、可視化に役立つ方法をまとめます。
 
 * [はじめに](intro)
-* [基本](basic)
+* [VBAの基本](basic)
 * [VBAのデバッグ](debug)
-* [繰り返し処理](loop)
+* [繰り返し処理(for eachなど)](loop)
+* [条件によって処理を変える(if文など)](loop)
 * [セルの変更に合わせて実行](sheet_change)
