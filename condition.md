@@ -81,7 +81,8 @@ If IsDate(value) Then  ' valueが日付形式だったら
 End If
 ``` 
 
-※ Caseで指定する方法のその他の例
+### Caseで指定する方法のその他の例
+
 ```
 値が 1～3 もしくは 10以上の場合:   Case 1 To 3, Is >= 10
 値が "A" か "B" の場合       ：   Case "A" Or "B"
