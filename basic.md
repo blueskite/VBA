@@ -117,41 +117,125 @@ Cells(3, 1).Value = total
 
 VBAでよく使う変数の定義(型)を以下にまとめます。
 
-|型     | 説明            | 備考                  | 
-|-------|-----------------|-----------------------|
-|Long   |整数             |-20億~+20億            |
-|Double |倍精度浮動小数点数|                       |
-|String |文字列           |                       |
-|Date   |日付             |                       |
-|Boolean|論理値           | True もしくはFalse       |
-|Object |オブジェクト         | ここで上げたもの以外すべて  |
-|Variant|ヴァリアント         |なんでも入れられる型       |
+|型        | 説明            | 備考                  | 
+|----------|-----------------|-----------------------|
+|Long      |整数             |-20億~+20億            |
+|Double    |倍精度浮動小数点数|                       |
+|String    |文字列           |                       |
+|Date      |日付             |                       |
+|Boolean   |論理値           | True もしくはFalse       |
+|Variant   |ヴァリアント         | どれでも入れられる型      | 
+|Object    |オブジェクト         | 上記以外               |
+|Worksheet |Excelシート        | Objectの子クラス         |
+|Range     |Excelセル         | Objectの子クラス         |
 
-※ Integer という16bit(-32768~32767)の範囲の整数を利用することもできます。
+* Integer という16bit(-32768~32767)の範囲の整数を利用することもできます。
+* 「Objectの子クラス」はObject型の変数に代入することができます。シートやセルについては次の項目を見てください。
 
-入力例
 ```
+入力例
 Dim i As Long: i = 100    ' 整数のi に100を入力
 
 Dim x as Double: x = 3.14
 
 Dim s as String: s = "ABC"
 
-Dim d as Date: d = #2017/1/4 12:14#  '日付をプログラムで設定するときは#で囲んでください
+Dim d as Date: d = #2017/1/4#  '日付をプログラムで設定するときは#で囲んでください
+Dim d2 as Date: d = #2017/1/4 12:14#  '時刻を含めることもできます
 
 Dim b as Boolean: b = True
+
+Dim val   ' As～を省略するとvariant型にになります。必要なときのみこの記載としてください
 
 Dim dic As Object: Set dic = Create("Scripting.Dictionary")
 ' オブジェクトに値を設定するときは
 
-Dim val   ' As～を省略するとvariant型にになります。必要なときのみこの記載としてください
-
 ```
-※ 途中に: を入れると複数の文を1行に記入することができます。
+
+* 途中に: を入れると複数の文を1行に記入することができます。
 
 -----------------------------------------
 
-### セルやシートの指定
-XXXXXXXXXXXXXXXXX
+### Excelセルやシートの操作
+Excelのセルの値を取得、変更するときは、指定方法によってRange, Cellsの2通りがあります。
+A1や A1:A10 など通常のExcelで指定するときは Range、 行・列番号で指定するときはCellsを利用します。
+
+```
+Dim r As Range  '1つもしくは複数のセルを入れる変数はRangeとして定義します
+Set r = Range("A2")
+Set r = Cells(2, 1)  ' A2 = 2行1列目として定義 → For i = 1 To 10 とかで指定できる
+
+' 複数セルを指定する場合
+Set r = Range("A2:E2") 
+Set r = Range(Cells(2, 1), Cells(2, 5))  '数値で指定する場合
+
+' rに指定したそれぞれのセルの値を参照、代入する
+Dim c As Range
+For Each c In r
+   Debug.Print c.Value
+   Debug.Print c.Row, c.Column, c.Address  ' 行番号、列番号、Excelのセル名($A$2など)を出力
+
+   c.Value = "ABC"  ' このセルに値を挿入
+   c.Formula = "=1+2"  '計算式を入れる場合  他の例) =sum(A1:A10)
+   c.Font.Color = RGB(0,0,255) '文字の色(赤、青、緑)
+   c.Interior.Color = RGB(0,0,0)    ’背景の色
+Next
+
+' セルの値を削除する時
+Range("A1:A10").ClearContents   '指定したセルの値を削除
+
+```
+
+* 文字や背景の色の指定については次の項目を見てください。
+
+RangeやCellsは今表示しているシートのセルを参照します。
+別シートのセルを操作したいときはシートを指定してください。
+
+```
+Dim ws As Worksheet: Set ws = Worksheets("Sheet1")  
+Dim r As Range
+Set r = ws.Range("A2")
+Debug.Print r.Value ' Sheet1シートのA2の値を出力
+
+'WithとEnd Withに挟まれたRangeやCellsで .(ピリオド)から始まるものは Sheet1のものとなります
+Dim r As Range
+With Worksheets("Sheet1")
+	Debug.Print .Range("A2").Value  ' Sheet1のセル
+	Debug.Print Range("A2").Value   ' 今開いているシートのセル (ピリオドなし)
+End With
+```
+
+-----------------------------------------
+
+### 色について
+セルの文字や背景の色を取得・変更することができます。
+
+```
+Dim r As Range
+Set r = Range("A1")
+
+r.Font.Color = RGB(0,0,0) '黒
+r.Font.ColorIndex = 3  '赤
+
+r.Interior.Color = RGB(255,0,255) ' 紫
+r.Interior.ColorIndex = 41 '青
+
+' デフォルトにする
+r.Font.ColorIndex = xlNone  
+r.Interior.ColorIndex = xlNone  
+
+' 他のセルの背景色をコピー
+r.Interior.Color = Range("B1").Interior.Color
+
+' 文字の色と背景を両方変更する
+With Range("A1:A10")
+    .Font.Color = RGB(0, 255, 0) ' 緑
+    .Interior.Color = RGB(255, 255, 0) ' 黄色
+End With
+
+```
+
+ColorIndexや RGBの数字によってどのような色となるかは以下を参考にください
+<http://officetanaka.net/excel/vba/cell/cell04.htm>
 
 
