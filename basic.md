@@ -89,7 +89,7 @@ Excelに戻ってボタンに表示する文字や大きさ、位置を変更す
 合計値を保存する変数を定義します。
 
 ```vb
-var total As Long
+Dim total As Long
 ```
 totalは初期値0の整数(32bit 最大値は約20億)の変数が定義されます。
 
