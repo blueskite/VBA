@@ -140,12 +140,12 @@ Dim x as Double: x = 3.14
 
 Dim s as String: s = "ABC"
 
-Dim d as Date: d = #2017/1/4#  '日付をプログラムで設定するときは#で囲んでください
-Dim d2 as Date: d = #2017/1/4 12:14#  '時刻を含めることもできます
+Dim d as Date: d = #2017/1/4#  '日付をプログラムで設定するとき
+Dim d2 as Date: d = #2017/1/4 12:14#  '時刻も含められる
 
 Dim b as Boolean: b = True
 
-Dim val   ' As～を省略するとvariant型にになります。必要なときのみこの記載としてください
+Dim val   ' As～を省略するとvariant型になります。(必要なときのみ利用)
 
 Dim dic As Object: Set dic = Create("Scripting.Dictionary")
 ' オブジェクトに値を設定するときは
@@ -163,7 +163,7 @@ A1や A1:A10 など通常のExcelで指定するときは Range、 行・列番�
 ```
 Dim r As Range  '1つもしくは複数のセルを入れる変数はRangeとして定義します
 Set r = Range("A2")
-Set r = Cells(2, 1)  ' A2 = 2行1列目として定義 → For i = 1 To 10 とかで指定できる
+Set r = Cells(2, 1)  ' A2 = 2行1列目として定義 
 
 ' 複数セルを指定する場合
 Set r = Range("A2:E2") 
@@ -173,7 +173,9 @@ Set r = Range(Cells(2, 1), Cells(2, 5))  '数値で指定する場合
 Dim c As Range
 For Each c In r
    Debug.Print c.Value
-   Debug.Print c.Row, c.Column, c.Address  ' 行番号、列番号、Excelのセル名($A$2など)を出力
+   
+   ' 行番号、列番号、Excelのセル名($A$2など)を出力
+   Debug.Print c.Row, c.Column, c.Address  
 
    c.Value = "ABC"  ' このセルに値を挿入
    c.Formula = "=1+2"  '計算式を入れる場合  他の例) =sum(A1:A10)
@@ -197,11 +199,12 @@ Dim r As Range
 Set r = ws.Range("A2")
 Debug.Print r.Value ' Sheet1シートのA2の値を出力
 
-'WithとEnd Withに挟まれたRangeやCellsで .(ピリオド)から始まるものは Sheet1のものとなります
+' WithとEnd Withに挟まれたRangeやCellsで 
+' .(ピリオド)から始まるものは Sheet1のものとなります
 Dim r As Range
 With Worksheets("Sheet1")
 	Debug.Print .Range("A2").Value  ' Sheet1のセル
-	Debug.Print Range("A2").Value   ' 今開いているシートのセル (ピリオドなし)
+	Debug.Print Range("A2").Value   ' 今開いているシートのセル
 End With
 ```
 
