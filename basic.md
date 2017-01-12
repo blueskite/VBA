@@ -25,7 +25,7 @@ VBAで1つプログラムを作成してから実行するまでの流れをま�
 ### 最初のプログラムの入力
 動作確認を兼ねてSubとEnd Subの間に以下のプログラムを入力してください。
 
-```
+```VB.net
 Option Explicit
 
 Sub Execute()
@@ -43,7 +43,7 @@ End Sub
 次に プログラムを次のように修正し再生(F5)を行ってください。
 このときVBエディタ下のイミディエイトウィンドウにDebug.Printで指定した文字列「テスト」が表示されます。
 
-```
+```VB.net
 Option Explicit
 
 Sub Execute()
@@ -88,12 +88,12 @@ Excelに戻ってボタンに表示する文字や大きさ、位置を変更す
 
 合計値を保存する変数を定義します。
 
-```
+```VB.net
 var total As Long
 ```
 totalは初期値0の整数(32bit 最大値は約20億)の変数が定義されます。
 
-```
+```VB.net
 Dim i As Long
 For i = 1 To 10
     total = total + Cells(i, 1).Value  ' i行 1列(=A列)の値を順に足す
@@ -102,7 +102,7 @@ Next
 For～Nextはその間の処理を繰り返します。このときiが1から10まで1つずつ増えていきます。
 1つのセルの値は Cells(行番号,列番号).Value として取得することができます。
 
-```
+```VB.net
 Cells(3, 1).Value = total
 ```
 3行1列目のセル(=C1)に 合計値を記入します。
@@ -132,7 +132,7 @@ VBAでよく使う変数の定義(型)を以下にまとめます。
 * Integer という16bit(-32768~32767)の範囲の整数を利用することもできます。
 * 「Objectの子クラス」はObject型の変数に代入することができます。シートやセルについては次の項目を見てください。
 
-```
+```VB.net
 入力例
 Dim i As Long: i = 100    ' 整数のi に100を入力
 
@@ -160,7 +160,7 @@ Dim dic As Object: Set dic = Create("Scripting.Dictionary")
 Excelのセルの値を取得、変更するときは、指定方法によってRange, Cellsの2通りがあります。
 A1や A1:A10 など通常のExcelで指定するときは Range、 行・列番号で指定するときはCellsを利用します。
 
-```
+```VB.net
 Dim r As Range  '1つもしくは複数のセルを入れる変数はRangeとして定義します
 Set r = Range("A2")
 Set r = Cells(2, 1)  ' A2 = 2行1列目として定義 
@@ -193,7 +193,7 @@ Range("A1:A10").ClearContents   '指定したセルの値を削除
 RangeやCellsは今表示しているシートのセルを参照します。
 別シートのセルを操作したいときはシートを指定してください。
 
-```
+```VB.net
 Dim ws As Worksheet: Set ws = Worksheets("Sheet1")  
 Dim r As Range
 Set r = ws.Range("A2")
@@ -213,7 +213,7 @@ End With
 ### 色について
 セルの文字や背景の色を取得・変更することができます。
 
-```
+```VB.net
 Dim r As Range
 Set r = Range("A1")
 
