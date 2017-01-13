@@ -9,7 +9,7 @@
 
 ### 例) プログラムを記述したセルの値を変更した時そのセルの行、列番号と値を表示する
 
-```
+```vb
 Private Sub Worksheet_Change(ByVal target As Range)
     Dim r as Range
     For Each r in target

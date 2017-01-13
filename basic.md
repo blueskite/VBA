@@ -235,7 +235,6 @@ With Range("A1:A10")
     .Font.Color = RGB(0, 255, 0) ' 緑
     .Interior.Color = RGB(255, 255, 0) ' 黄色
 End With
-
 ```
 
 ColorIndexや RGBの数字によってどのような色となるかは以下を参考にください

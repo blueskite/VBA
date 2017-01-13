@@ -64,7 +64,7 @@ OKをおすと2回目に定義されている箇所が選択されるのでそ�
 
 セルの値などウォッチウィンドウから値を確認するのが難しいものは、イミディエイトウィンドウにDebug.Printを利用して出力することもできます。
 
-```
+```vb
 Debug.Print r(1).Value
   30
 Debug.Print r(1).Row, r(1).Column
@@ -99,7 +99,7 @@ http://excelvba.pc-users.net/fol8/8_3.html
 
 例) ブレイクで止まっている状態で 既に定義されている a(=4), b(=6)の変数の合計値を知りたい時
 
-```
+```vb
 Debug.Print a + b
    10
 ```
