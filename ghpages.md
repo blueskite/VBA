@@ -1,5 +1,4 @@
 # GitHub Pagesを利用した静的サイト構築
-
 このサイトはGithub Pages上でMarkdown (GFM)を利用したWikiページとしています。
 
 ## ワークフロー
@@ -17,8 +16,6 @@ $ git rm ファイル名
 
 ## 他で編集したものの取込
 $ git pull
-
-
 ```
 
 
@@ -37,7 +34,7 @@ kramdown:
   syntax_highlighter: rouge
 ```
 
-https://github.com/pietromenna/jekyll-cayman-theme より次のファイルをコピー
+<https://github.com/pietromenna/jekyll-cayman-theme> より次のファイルをコピー
 
 * _layouts/default.html  レイアウトファイル 
 * _includes/head.html  htmlヘッダ、 highlight.cssを追加
@@ -56,14 +53,16 @@ Github Pagesは [Rouge](https://github.com/jneen/rouge)でコードハイライ�
 * vb
 * yaml
 
-参考) https://github.com/jneen/rouge/wiki/List-of-supported-languages-and-lexers
+参考) <https://github.com/jneen/rouge/wiki/List-of-supported-languages-and-lexers>
 
-
-
+--------------------------
 
 ## ローカルで動作
 
 
+
+
+--------------------------
 
 ## gitの利用メモ
 
