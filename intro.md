@@ -1,5 +1,3 @@
-[TOP](.)
-
 # はじめに
 Excel VBA(Visual Basic for Application)は、
 一定の操作手順を自動化するためにつかうツールです。
