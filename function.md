@@ -48,11 +48,13 @@ End Function
 引数の値は通常は変更できませんが、以下の記述で変更することができます
 
 ```vb
-Function createString(ByRef str As String)
+Function CreateString(ByRef str As String)
     str = "コメント"
 End Sub
 
-createString(s) として呼び出すと sに"コメント"という文字列が代入されます。
+Sub Test()
+  CreateString(s)   'sに"コメント"という文字列が代入されます。
+End Sub
 ```
 
 ----------------------------
@@ -71,7 +73,7 @@ Sub Execute()
     Debug.Print circleArea(i) & "[cm2]"
 End Sub
 
-’ Utilモジュールにて
+' Utilモジュールにて
 Function circleArea(i As Long) As Long  
     Const PI = 3.14
     circleArea = i * i * PI
