@@ -33,6 +33,7 @@ google_analytics: XXXXXXX
 theme: jekyll-theme-cayman
 ```
 
+レイアウトファイル defaults/
 
 
 
