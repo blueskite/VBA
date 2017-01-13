@@ -53,7 +53,9 @@ End If
 
 ```vb
 Dim value   'valueは何でも入力できるVariant型
-~ここでvalueに値を入力する~
+
+'～ここでvalueに値を入力する～
+
 If Not IsNumeric(value) Then
    Debug.Print "valueは数値ではない"
 End If
@@ -92,7 +94,8 @@ End If
 ### Caseで指定する方法のその他の例
 
 ```vb
-値が 1～3 の場合:   Case 1 To 3, Is >= 10
-値が10以上の場合:   Case Is >= 10
+Case 1 To 3, Is >= 10  ' 値が 1～3 の場合
+
+Case Is >= 10  ' 値が10以上の場合
 ```
 

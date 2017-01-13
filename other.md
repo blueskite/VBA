@@ -21,8 +21,7 @@ Dim answer As String: answer = "1番"
 Debug.Print "正解は" & answer & "です"   
 
 
-改行は vbLf で表現します
-
+' 改行は vbLf で表現します
 Debug.Print  "1行目" & vbLf & "2行目"
 ```
 
