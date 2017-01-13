@@ -5,3 +5,6 @@ google_analytics: UA-90286018-1
 theme: jekyll-theme-cayman
 
 markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
