@@ -26,20 +26,30 @@ $ git pull
 設定ファイル _config.yml
 
 ```yaml
-title: VBA
-description: Excel VBAを使いこなそう
-# show_downloads: true
+title: VBA 
+tagline: Excel VBAを使いこなそう
 google_analytics: XXXXXXX
 theme: jekyll-theme-cayman
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
 ```
 
-レイアウトファイル defaults/
+https://github.com/pietromenna/jekyll-cayman-theme より次のファイルをコピー
 
-
+* _layouts/default.html  レイアウトファイル 
+* _includes/head.html  htmlヘッダ、 highlight.cssを追加
+* _includes/page-header.html  微調整
+* _includes/page-footer.html 微調整
+* css/cayman.css 微調整
+* css/normalize.css
+* css/highlight.css GhPagesのCSSから.highlight をコピー(もっといい方法があるはず)
 
 
 ### コードハイライタで装飾できる言語種類
-Github Pagesは [Rouge](https://github.com/jneen/rouge)でコードハイライトできる。
+Github Pagesは [Rouge](https://github.com/jneen/rouge)でコードハイライトできる
 
 * html
 * shell
