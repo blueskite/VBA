@@ -3,3 +3,5 @@ tagline: Excel VBAを使いこなそう
 # show_downloads: true
 google_analytics: UA-90286018-1
 theme: jekyll-theme-cayman
+
+markdown: kramdown
