@@ -31,6 +31,31 @@ TimeFinishが呼ばれたときに経過時間が表示されます。
 ```
 ------------------
 
+# シート全体の文字を削除
+シート名を指定してそのセル全体の値を削除する方法です
+
+```vb
+Worksheets("シート名").Cells.ClearContents
+```
+------------------
+
+# 配列の利用
+VBAプログラム内で複数の要素をまとめるのにArray関数を利用することができます。
+
+## 複数の要素に対して繰り返し処理をする
+
+例) Arrayに3つのシート名をVBAに直書きしてセル全体の値を初期化する方法
+
+```vb
+Dim s As String
+For Each s In Array("シート1", "シート3", "シート3")
+    Worksheets(s).Cells.ClearContents
+Next
+```
+
+
+------------------
+
 # VBAのもととなるVisual Basicの特徴
 Visual Basicは、Java ScriptなどC系の言語と比較して書き方に特徴があります。
 ざっと理解するために違いを整理します。
