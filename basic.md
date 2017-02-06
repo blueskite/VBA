@@ -216,6 +216,17 @@ With Worksheets("Sheet1")
 End With
 ```
 
+セルを指定する例を幾つか紹介します。
+
+```vb
+Cells.ClearContents   ' シートの全セルの値を削除
+
+Range("A1,C1").Value = "hoge"  ' 離れた複数のセルに値を代入
+
+Range("A1:A10,C1:C10").Formula = "=Today()"
+```
+
+
 -----------------------------------------
 
 ### 色について

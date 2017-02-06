@@ -59,6 +59,27 @@ End Sub
 
 ----------------------------
 
+## セルに定義した数式を関数にする
+セルの数式が長くなるとちょっとした間違いやうっかり編集してしまうなどで壊してしまうことがあります。
+数式をVBAのFunctionにしておくことで長い数式でもミスを起こしにくいExcelシートを使えるようになります。
+
+```vb
+例  別シートの key-valueとなっているマスタデータに対して keyに対するvalueを参照する
+=INDEX(元データ!$B:$B, MATCH(A1,元データ!$A:$A, 0), 1)
+↓
+VBAの標準モジュールに追加
+Function id2item(key As String) As String
+    id2item = WorksheetFunction.Index(Range("元データ!$B:$B"), _
+              WorksheetFunction.Match(key, Range("元データ!$A:$A"), 0), 1)
+End Function
+
+各セルには  =id2item(A1) と 記述するだけでOKです
+
+```
+
+
+----------------------------
+
 ## 複数の標準モジュール挿入
 ある関数を別の標準モジュール(ファイルのようなもの)に分離させることでプログラムの大事な部分を見やすくなります。
 
