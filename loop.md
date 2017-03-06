@@ -59,6 +59,40 @@ dic はディクショナリ(もしくは連想配列)です。ディクショ�
 
 ------------------
 
+### Dictionaryで利用できる関数一覧
+
+```vb
+' keyが存在するかチェック
+If dic.Exists(value) Then
+	' valueがある時の処理
+	Debug.Print dic(value)
+Else
+	' valueが含まれていない時の処理
+End If 
+
+
+' 辞書に含まれるkeyの個数
+Debug.Print dic.Count  
+
+
+' 辞書のkeyを1つずつ取り出す
+Dim i As Long
+For i = 0 To dic.Count - 1
+	Debug.Print dic.Keys(i)
+Next
+
+Dim key as Variant
+For Each key in dic
+	Debug.Print key, dic(key)
+Next
+
+' 辞書の初期化
+dic.RemoveAll
+
+```
+
+------------------
+
 ### 並んだセルから順番に読み書き (数字で指定する方法)
 例) A列の値を順に表示
 

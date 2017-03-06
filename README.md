@@ -8,8 +8,9 @@ Excel VBAを使って集計やデータ分析、可視化に役立つ方法を�
 * [繰り返し処理(For Eachなど)](loop)
 * [条件によって処理を変える(If文など)](condition)
 * [セルの変更に合わせて実行](sheet_change)
-* [プログラムが大きくなってきた・再利用(Function, 複数のモジュール)](function)
+* [プログラムが大きくなってきた・再利用](function) Function, 複数のモジュール
 * [もう少し詳しく](advanced)
+* [Excelで利用する](excel) Excel関数の利用、VBA関数化
 
 
 ----------------------------

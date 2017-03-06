@@ -73,8 +73,7 @@ Function id2item(key As String) As String
               WorksheetFunction.Match(key, Range("元データ!$A:$A"), 0), 1)
 End Function
 
-各セルには  =id2item(A1) と 記述するだけでOKです
-
+各セルには  =id2item(A1) と 記述するだけ
 ```
 
 

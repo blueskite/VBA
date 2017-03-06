@@ -121,6 +121,7 @@ Cells(3, 1).Value = total
 --------------------------------------------
 
 ## もう少し詳しく
+
 ### 変数の定義
 
 VBAでよく使う変数の定義(型)を以下にまとめます。
@@ -224,6 +225,8 @@ Cells.ClearContents   ' シートの全セルの値を削除
 Range("A1,C1").Value = "hoge"  ' 離れた複数のセルに値を代入
 
 Range("A1:A10,C1:C10").Formula = "=Today()"
+
+Debug.Print Range("A1").Text   ' Excelにフォーマットされた表示されたものを文字列として取得
 ```
 
 
